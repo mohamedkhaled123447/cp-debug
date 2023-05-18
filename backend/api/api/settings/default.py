@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "allauth.account",  
     "allauth.socialaccount",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local apps
     "debug",
 ]
@@ -194,9 +195,14 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", 
 }
 
-
+SPECTACULAR_SETTINGS = {
+"TITLE": "cp-debug Project",
+"DESCRIPTION": "A sample blog to learn about DRF",
+"VERSION": "1.0.0",
+}
 CORS_ALLOWED_ORIGINS = [env("WEB_ROOT_URL"), "http://localhost:3000"]
 
 # Static files (CSS, JavaScript, Images)
